@@ -7,12 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.CheckBox;
 
+import com.explem.smalllemonade.base.BaseActivity;
 import com.explem.smalllemonade.fragment.CommunityFragment;
 import com.explem.smalllemonade.fragment.HomeFragment;
 import com.explem.smalllemonade.fragment.MineFragment;
-import com.zhy.autolayout.AutoLayoutActivity;
 
-public class MainActivity extends AutoLayoutActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ViewPager activity_vp;
     private CheckBox home_fragment_check;
