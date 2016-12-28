@@ -26,7 +26,8 @@
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".base.BaseActivity"></activity>
+        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".view.Home_Fragemnt_Note"></activity>
     </application>
 
 </manifest>
