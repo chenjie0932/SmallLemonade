@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/vp_fragmrnt_comm"/>
+
         <CheckBox
             android:id="@+id/mine_fragment_check"
             android:button="@null"
