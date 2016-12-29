@@ -98,17 +98,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private void initView() {
         //恋爱期
         home_fragment_period = (TextView) v.findViewById(R.id.home_fragment_period);
-        //短信
+//        //短信
         home_fragment_note = (ImageView) v.findViewById(R.id.home_fragment_note);
-        //轮播图
-        home_fragment_viewPager = (ViewPager) v.findViewById(R.id.home_fragment_viewPager);
-        home_fragment_lin = (LinearLayout) v.findViewById(R.id.home_fragment_lin);
-        //雪人图片
-        home_fragment_snow_people = (ImageView) v.findViewById(R.id.home_fragment_snow_people);
+//        //轮播图
+//        home_fragment_viewPager = (ViewPager) v.findViewById(R.id.home_fragment_viewPager);
+//        home_fragment_lin = (LinearLayout) v.findViewById(R.id.home_fragment_lin);
+//        //雪人图片
+//        home_fragment_snow_people = (ImageView) v.findViewById(R.id.home_fragment_snow_people);
         //请求网络
-        getData(path_lunbo,args_lunbo,tag_lunbo);
+        //getData(path_lunbo,args_lunbo,tag_lunbo);
         //设置轮播图动画
-        getLunBoAnim();
+        //getLunBoAnim();
 
         home_fragment_period.setOnClickListener(this);
         home_fragment_note.setOnClickListener(this);
@@ -123,10 +123,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             ImageView imageView = new ImageView(getActivity());
             if (i == 0) {
                 // 如果是第一张，默认给一个亮的小点
-                imageView.setImageResource(R.drawable.dot_focuse);
+                //imageView.setImageResource(R.drawable.dot_focuse);
             } else {
                 // 如果不是滴一个，默认给一个暗的小点
-                imageView.setImageResource(R.drawable.dot_normal);
+                //imageView.setImageResource(R.drawable.dot_normal);
             }
             // 设置小点的默认宽高为20dp
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
@@ -160,10 +160,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     // 如果当前的索引值和i相等
                     if (position % docList.size() == i) {
                         // 设置小点为亮色
-                        docList.get(i).setImageResource(R.drawable.dot_focuse);
+                        //docList.get(i).setImageResource(R.drawable.dot_focuse);
                     } else {
                         // 否则暗色
-                        docList.get(i).setImageResource(R.drawable.dot_normal);
+                        //docList.get(i).setImageResource(R.drawable.dot_normal);
                     }
                 }
             }
