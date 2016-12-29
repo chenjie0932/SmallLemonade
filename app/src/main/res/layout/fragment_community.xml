@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:orientation="vertical"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="板块"
-                android:textColor="@drawable/community_header_color_selector"/>
+                />
 
             <RadioButton
                 android:layout_width="0px"
@@ -40,7 +41,7 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="精选"
-                android:textColor="@drawable/community_header_color_selector"/>
+                />
 
             <RadioButton
                 android:layout_width="0px"
@@ -49,7 +50,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="全部"
-                android:textColor="@drawable/community_header_color_selector"/>
+                />
 
 
         </RadioGroup>
@@ -79,17 +80,12 @@
     </LinearLayout>
 
 
-    <com.liaoinstan.springview.widget.SpringView
-        android:id="@+id/sv_community_content"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_community_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_community_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
-    </com.liaoinstan.springview.widget.SpringView>
+    </android.support.v4.view.ViewPager>
 
 
 </LinearLayout>

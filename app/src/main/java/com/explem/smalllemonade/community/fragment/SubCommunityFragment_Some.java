@@ -11,29 +11,29 @@ import com.explem.smalllemonade.base.BaseFragment;
  * Created by Administrator on 2016/12/28 0028.
  */
 
-public class SubCommunityFragment extends BaseFragment {
+public class SubCommunityFragment_Some extends BaseFragment {
 
     public int type;
 
     @Override
     protected void onload() {
 
-        Bundle bundle = getArguments();
-        type = bundle.getInt("type");
+//        Bundle bundle = getArguments();
+//        type = bundle.getInt("type");
 
     }
 
     @Override
     protected View createSuccessView() {
         TextView textView = new TextView(getActivity());
-        textView.setText(type+"  hehehe");
+        textView.setText("精选");
         return textView;
     }
 
 
     public Fragment setFragment(int type){
 
-        SubCommunityFragment subCommunityFragment = new SubCommunityFragment();
+        SubCommunityFragment_Some subCommunityFragment = new SubCommunityFragment_Some();
         Bundle bundle = new Bundle();
         bundle.putInt("type",type);
         subCommunityFragment.setArguments(bundle);
