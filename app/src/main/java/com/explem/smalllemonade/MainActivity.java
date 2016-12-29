@@ -3,7 +3,6 @@ package com.explem.smalllemonade;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.CheckBox;
 
@@ -11,10 +10,11 @@ import com.explem.smalllemonade.base.BaseActivity;
 import com.explem.smalllemonade.fragment.CommunityFragment;
 import com.explem.smalllemonade.fragment.HomeFragment;
 import com.explem.smalllemonade.fragment.MineFragment;
+import com.explem.smalllemonade.view.NoScollViewPager;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private ViewPager activity_vp;
+    private NoScollViewPager activity_vp;
     private CheckBox home_fragment_check;
     private CheckBox community_fragment_check;
     private CheckBox mine_fragment_check;
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initView() {
-        activity_vp = (ViewPager) findViewById(R.id.activity_vp);
+        activity_vp = (NoScollViewPager) findViewById(R.id.activity_vp);
         //下方的三个按钮
         home_fragment_check = (CheckBox) findViewById(R.id.home_fragment_check);
         community_fragment_check = (CheckBox) findViewById(R.id.community_fragment_check);
