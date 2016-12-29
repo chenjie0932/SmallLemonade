@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorGry"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/profile_bg">
+
+        <ImageView
+            android:id="@+id/mf_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/mf_ver_margain"
+            android:src="@mipmap/header_photo" />
+
+
+        <TextView
+            android:text="@string/mf_name"
+            android:id="@+id/mf_tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mf_icon"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/mf_tv_hei" />
+
+        <ImageView
+            android:layout_below="@id/mf_icon"
+              android:layout_toRightOf="@id/mf_tvName"
+            android:id="@+id/mf_ivSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
+
+
+        <TextView
+
+            android:layout_marginTop="@dimen/mf_ver_margain"
+            android:layout_below="@id/mf_tvName"
+            android:id="@+id/mf_tvEye"
+               android:text="@string/mf_eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/mf_tv_hei" />
+
+        <TextView
+
+            android:layout_marginTop="@dimen/mf_ver_margain"
+            android:id="@+id/mf_tvNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mf_tvEye"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/mf_tv_hei" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mf_reBaseInfo"
+        android:background="@color/colorWhite"
+          android:layout_marginTop="@dimen/mf_ver_margain"
+          android:padding="@dimen/mf_hor_margain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+             android:layout_marginLeft="@dimen/mf_ver_margain"
+            android:id="@+id/img"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/me_title_profile" />
+          <TextView
+              android:textColor="@color/colorBlack"
+              android:textSize="@dimen/mf_tv_hei"
+               android:layout_centerInParent="true"
+              android:layout_marginLeft="@dimen/mf_hor_margain"
+                android:layout_toRightOf="@id/img"
+              android:text="@string/mf_base"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+        <ImageView
+
+            android:id="@+id/img1"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/more" />
+        <TextView
+            android:textColor="#a6a6a6"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_hor_margain"
+                android:layout_toLeftOf="@id/img1"
+            android:text="@string/mf_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+      <LinearLayout
+          android:layout_marginTop="@dimen/mf_ver_margain"
+            android:orientation="horizontal"
+          android:id="@+id/mf_ll"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"></LinearLayout>
+    <RelativeLayout
+        android:id="@+id/mf_reMine"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="@dimen/mf_ver_margain"
+        android:padding="@dimen/mf_hor_margain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_ver_margain"
+            android:id="@+id/img_me"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/me_title_post" />
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/mf_tv_hei"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_hor_margain"
+            android:layout_toRightOf="@id/img_me"
+            android:text="@string/mf_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+
+
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/more" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mf_reFeed"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="@dimen/mf_ver_margain"
+        android:padding="@dimen/mf_hor_margain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_ver_margain"
+            android:id="@+id/img_feed"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/me_title_feedback" />
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/mf_tv_hei"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_hor_margain"
+            android:layout_toRightOf="@id/img_feed"
+            android:text="@string/mf_feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+
+
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/more" />
+
+    </RelativeLayout>
+    <TextView
+        android:background="@color/colorGry"
+        android:layout_width="wrap_content"
+        android:layout_height="3px" />
+    <RelativeLayout
+        android:id="@+id/mf_reSeting"
+        android:background="@color/colorWhite"
+
+        android:padding="@dimen/mf_hor_margain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_ver_margain"
+            android:id="@+id/img_set"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/me_title_post" />
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/mf_tv_hei"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/mf_hor_margain"
+            android:layout_toRightOf="@id/img_set"
+            android:text="@string/mf_seting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+
+
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/more" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -22,4 +22,7 @@
 
 
 
+    <dimen name="mf_ver_margain">16px</dimen>
+    <dimen name="mf_hor_margain">16px</dimen>
+    <dimen name="mf_tv_hei">20dp</dimen>
 </resources>
