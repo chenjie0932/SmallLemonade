@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SmallLemonadeSXW</string>
+    <string name="mf_name">昵称</string>
+    <string name="mf_eye">关注</string>
+    <string name="mf_base">基本资料</string>
+    <string name="mf_mine">我的帖子</string>
+    <string name="mf_feed">意见反馈</string>
+    <string name="mf_seting">设置</string>
+    <string name="mf_up">修改密码改这里哦</string>
 </resources>

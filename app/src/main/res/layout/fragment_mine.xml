@@ -20,7 +20,7 @@
 
 
         <TextView
-            android:text="昵称"
+            android:text="@string/mf_name"
             android:id="@+id/mf_tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_marginTop="@dimen/mf_ver_margain"
             android:layout_below="@id/mf_tvName"
             android:id="@+id/mf_tvEye"
-               android:text="关注"
+               android:text="@string/mf_eye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -80,7 +80,7 @@
                android:layout_centerInParent="true"
               android:layout_marginLeft="@dimen/mf_hor_margain"
                 android:layout_toRightOf="@id/img"
-              android:text="基本资料"
+              android:text="@string/mf_base"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" />
         <ImageView
@@ -95,7 +95,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/mf_hor_margain"
                 android:layout_toLeftOf="@id/img1"
-            android:text="修改资料改这里"
+            android:text="@string/mf_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
@@ -126,7 +126,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/mf_hor_margain"
             android:layout_toRightOf="@id/img_me"
-            android:text="我的帖子"
+            android:text="@string/mf_mine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
@@ -159,7 +159,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/mf_hor_margain"
             android:layout_toRightOf="@id/img_feed"
-            android:text="意见反馈"
+            android:text="@string/mf_feed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
@@ -196,7 +196,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/mf_hor_margain"
             android:layout_toRightOf="@id/img_set"
-            android:text="设置"
+            android:text="@string/mf_seting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
