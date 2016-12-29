@@ -80,6 +80,7 @@ public abstract class BaseDate {
      */
     private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
         RequestQueue mQueue = Volley.newRequestQueue(context);
+
         StringRequest stringRequest = new StringRequest(path+"?"+args,
                 new com.android.volley.Response.Listener<String>() {
             @Override
