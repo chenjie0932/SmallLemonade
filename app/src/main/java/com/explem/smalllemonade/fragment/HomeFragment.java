@@ -24,8 +24,6 @@ import com.bumptech.glide.Glide;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.bean.Home_Fragment_LunBo_Bean;
-import com.explem.smalllemonade.utils.CommonUtils;
-import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
