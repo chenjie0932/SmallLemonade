@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:paddingLeft="@dimen/common_padding"
+              android:paddingRight="@dimen/common_padding"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:padding="@dimen/common_padding"
+        android:background="#fff"
+        android:id="@+id/subcommunityfragment_first"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/forum_section_first_logo"
+        android:drawableRight="@mipmap/more"
+        android:text="   你的月亮我的心"/>
+
+    <TextView
+        android:padding="@dimen/common_padding"
+        android:background="#fff"
+        android:id="@+id/subcommunityfragment_second"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/forum_section_second_logo"
+        android:drawableRight="@mipmap/more"
+        android:text="   恋爱羞羞事"/>
+
+    <TextView
+        android:padding="@dimen/common_padding"
+        android:background="#fff"
+        android:id="@+id/subcommunityfragment_third"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/forum_section_third_logo"
+        android:drawableRight="@mipmap/more"
+        android:text="   约会必杀技"/>
+
+    <TextView
+        android:padding="@dimen/common_padding"
+        android:background="#fff"
+        android:id="@+id/subcommunityfragment_fourth"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/forum_section_four_logo"
+        android:drawableRight="@mipmap/more"
+        android:text="   主要看颜值"/>
+
+    <TextView
+        android:padding="@dimen/common_padding"
+        android:background="#fff"
+        android:id="@+id/subcommunityfragment_five"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/forum_section_five_logo"
+        android:drawableRight="@mipmap/more"
+        android:text="   恋爱直播间"/>
+
+</LinearLayout>

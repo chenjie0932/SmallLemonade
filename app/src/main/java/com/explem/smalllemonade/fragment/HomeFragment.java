@@ -24,6 +24,8 @@ import com.bumptech.glide.Glide;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.bean.Home_Fragment_LunBo_Bean;
+import com.explem.smalllemonade.utils.CommonUtils;
+import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
@@ -180,18 +182,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.home_fragment_period:
-                //选择时期
-                Peroid();
-                break;
-            case R.id.home_fragment_note:
-                enterIntent(Home_Fragemnt_Note.class);
-                break;
-            default:
-                break;
-        }
+                case R.id.home_fragment_period:
+                    //选择时期
+                    Peroid();
+                    break;
+                case R.id.home_fragment_note:
+                    enterIntent(Home_Fragemnt_Note.class);
+                    break;
+                default:
+                    break;
+            }
 
-    }
+        }
 
     //选择时期
     void Peroid() {
