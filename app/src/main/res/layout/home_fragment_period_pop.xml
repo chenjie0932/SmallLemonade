@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period_pop_local">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/period_one_dog_pop" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period_pop_local"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/home_fragment_pop_che_two"
+            android:checked="false"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/home_fragment_period_two"
+            android:gravity="center_horizontal"
+            android:text="恋爱期" />
+
+        <CheckBox
+            android:id="@+id/home_fragment_pop_che_one"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/home_fragment_period_one"
+            android:gravity="center_horizontal"
+            android:text="单身期" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/home_fragment_pop_true"
+            android:layout_width="@dimen/home_fragment_period_pop_hight"
+            android:layout_height="@dimen/home_fragment_period"
+            android:layout_centerHorizontal="true"
+            android:background="@color/popCoffeeColor"
+            android:text="@string/period_one_dog_pop_button_true"
+            android:textColor="@color/WallColor"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

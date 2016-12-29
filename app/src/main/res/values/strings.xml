@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">SmallLemonadeSXW</string>
+    <string name="period_two_people">恋爱期</string>
+    <string name="period_one_dog">单身期</string>
+    <string name="period_one_dog_pop">您现处在于</string>
+    <string name="period_one_dog_pop_button_true">确定</string>
+    <string name="period_one_dog_pop_button_message">消息</string>
+    <string name="period_one_dog_pop_button_talk">会话</string>
+    <string name="period_one_dog_pop_button_replay">回复</string>
+    <string name="period_one_dog_pop_button_concern">未关注人消息</string>
+    <string name="period_one_dog_pop_button_xitong_message">系统消息</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">松开刷新</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新\u2026</string>
+    <string name="pull_to_refresh_footer_release_label">松开加载更多</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+
 </resources>

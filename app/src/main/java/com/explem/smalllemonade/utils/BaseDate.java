@@ -1,21 +1,20 @@
 package com.explem.smalllemonade.utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 
-import com.explem.smalllemonade.application.MyApplication;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.explem.smalllemonade.bean.CacheBean;
+import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.view.ShowingPage;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
+
+import static com.explem.smalllemonade.fragment.HomeFragment.data;
 
 
 /**
@@ -27,16 +26,14 @@ public abstract class BaseDate {
 
     public static int NOMALTIME=24*3*60*60*1000;
 
-    private final File cacheDir;
+    public static File cacheDir;
+    private final Dao dao;
+    private final Context context;
 
-    public BaseDate(){
-        //存到那里去？
-        cacheDir = MyApplication.getConText().getCacheDir();
-        File file=new File(cacheDir,"yunifang");
-        //判断此文件夹是否存在，不存在就创建
-        if(!file.exists()){
-            file.mkdirs();
-        }
+    public BaseDate(Context context){
+        this.context=context;
+        //得到数据库的管理类
+        dao = new Dao(context);
     }
     /**
      * 这个方法供外面调用
@@ -51,7 +48,20 @@ public abstract class BaseDate {
             //直接请求网络
             getDataFromNet(path,args,index,validTime);
         }else{
-            String data=getDataFromLocal(path,args,index,validTime);
+            //数据库的查询方法
+            ArrayList<CacheBean> list=dao.selectCache();
+            for (int i = 0; i < list.size(); i++) {
+                if(list.get(i).getPath().equals(path+args)){
+                    long myTime=Long.parseLong(list.get(i).getTime());
+                    //从数据库中拿到数据
+                    if(System.currentTimeMillis()<myTime){
+                        data=list.get(i).getName();
+                    }else{
+                        //直接请求网络
+                        getDataFromNet(path,args,index,validTime);
+                    }
+                }
+            }
             if(TextUtils.isEmpty(data)){
                 getDataFromNet(path,args,index,validTime);
             }else{
@@ -62,31 +72,19 @@ public abstract class BaseDate {
     }
 
     /**
-     * 网络获取----OkHttpClient
+     * 网络获取----volley
      * @param path
      * @param args
      * @param index
      * @param validTime
      */
     private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
-        //1.创建对象
-        OkHttpClient okHttpClient=new OkHttpClient();
-        //2.创建Request
-        Request request=new Request.Builder()
-                .url(path+"?"+args)
-                .build();
-        //3.创建call对象
-        Call call=okHttpClient.newCall(request);
-        //4.请求
-        call.enqueue(new Callback() {
+        RequestQueue mQueue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest(path+"?"+args,
+                new com.android.volley.Response.Listener<String>() {
             @Override
-            public void onFailure(Request request, IOException e) {
-                setResultError(ShowingPage.StateType.STATE_LOAD_ERROR);
-            }
-
-            @Override
-            public void onResponse(Response response) throws IOException {
-                final String data=response.body().string();
+            public void onResponse(String s) {
+                final String data=s;
                 //设置数据
                 CommonUtils.runOnMainThread(new Runnable() {
                     @Override
@@ -94,70 +92,34 @@ public abstract class BaseDate {
                         setResultData(data);
                     }
                 });
-                //写入本地
-                writeToLocal(path,args,index,validTime,data);
+
+                //保存到数据库
+                //先查询数据库
+                ArrayList<CacheBean> list=dao.selectCache();
+                if(list!=null){
+                    boolean flag=false;
+                    for (int i = 0; i < list.size(); i++) {
+                        if(list.get(i).getPath().equals(path+args)){
+                            dao.updateCache(new CacheBean(path+args,data,System.currentTimeMillis()+validTime+"","11"),list.get(i).getPath());
+                            flag=true;
+                        }
+                    }
+                    if(!flag){
+                        dao.addCache(new CacheBean(path+args,data,System.currentTimeMillis()+validTime+"","11"));
+                    }
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                //设置错误界面
+                setResultError(ShowingPage.StateType.STATE_LOAD_ERROR);
             }
         });
+        mQueue.add(stringRequest);
     }
-
+    //请求错误时返回的方法
     protected abstract void setResultError(ShowingPage.StateType stateLoadError);
-
-    /**
-     * 写入本地
-     * @param data
-     */
-    private void writeToLocal(String path, String args, int index, int validTime, String data) {
-        try {
-            //每一次请求都创建一个文件
-            File file=new File(cacheDir, MD5Encoder.encode(path)+index);
-            BufferedWriter bw=new BufferedWriter(new FileWriter(file));
-            //第一行存入时间
-            bw.write(System.currentTimeMillis()+validTime+"\r\n");
-            bw.write(data);
-            bw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    /**
-     * 本地获取
-     * @param path
-     * @param args
-     * @param index
-     * @param validTime
-     * @return
-     */
-    private String getDataFromLocal(String path, String args, int index, int validTime) {
-        try {
-            //创建文件
-            File file=new File(cacheDir,MD5Encoder.encode(path)+index);
-            BufferedReader br=new BufferedReader(new FileReader(file));
-            String time=br.readLine();
-            long myTime= Long.parseLong(time);
-            if(System.currentTimeMillis()<myTime){
-                StringBuilder strbuilder=new StringBuilder();
-                String str="";
-                while ((str=br.readLine())!=null) {
-                    strbuilder.append(str);
-                }
-                br.close();
-                return strbuilder.toString();
-            }else{
-                return null;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * 将请求成功的数据作返回
-     * @param data
-     */
+    //请求成功时返回的方法
     public abstract void setResultData(String data);
-
-   
 }

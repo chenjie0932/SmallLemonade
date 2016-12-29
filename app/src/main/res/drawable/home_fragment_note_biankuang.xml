@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/popCoffeeColor" />
+            <corners android:radius="0dp"/>
+            <stroke
+                android:width="3dp"
+                android:color="@color/popCoffeeColor" />
+        </shape>
+    </item>
+    <item android:top="0dp">向下平移1dp
+        <shape>
+            <corners android:radius="100dp"/>
+            <solid android:color="@color/WallColor" />
+
+        </shape>
+    </item>
+</layer-list>

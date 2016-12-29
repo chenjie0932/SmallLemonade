@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorYellow">#FFda44</color>
     <color name="colorgray">#b1b1b1</color>
+    <color name="popCoffeeColor">#FFA042</color>
+    <color name="Gray">#bebebe</color>
+    <color name="WallColor">#fff</color>
+    <color name="X_Black">#000</color>
+
+
 </resources>
