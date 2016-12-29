@@ -26,6 +26,9 @@
         <meta-data
             android:name="design_height"
             android:value="1280" />
+
+        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".view.Home_Fragemnt_Note"></activity>
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
