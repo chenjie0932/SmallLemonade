@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_subcommunity_title"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/tv_subcommunity_content"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        >
+
+        <TextView
+            android:id="@+id/tv_subcommunity_name"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+
+        <TextView
+            android:id="@+id/tv_subcommunity_createTime"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/tv_subcommunity_replyTimes"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/article_comment"
+            android:gravity="center"
+            android:text="2"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
