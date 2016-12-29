@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
+import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.utils.BaseDate;
