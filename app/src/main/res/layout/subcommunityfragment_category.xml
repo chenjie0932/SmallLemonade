@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:paddingLeft="@dimen/common_padding"
               android:paddingRight="@dimen/common_padding"
@@ -66,4 +66,4 @@
         android:drawableRight="@mipmap/more"
         android:text="   恋爱直播间"/>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

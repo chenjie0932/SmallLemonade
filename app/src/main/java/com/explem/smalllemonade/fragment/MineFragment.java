@@ -1,22 +1,28 @@
 package com.explem.smalllemonade.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.view.ShowingPage;
 
-import static com.explem.smalllemonade.R.id.mf_icon;
-import static com.explem.smalllemonade.R.id.mf_ivSex;
 import static com.explem.smalllemonade.R.id.mf_reBaseInfo;
-import static com.explem.smalllemonade.R.id.mf_reFeed;
-import static com.explem.smalllemonade.R.id.mf_reMine;
-import static com.explem.smalllemonade.R.id.mf_reSeting;
-import static com.explem.smalllemonade.R.id.mf_tvNum;
 
 /**
  * Created by Pooh on 2016/12/27.
@@ -27,6 +33,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private View mineView;
     private ImageView mf_icon, mf_ivSex;
     private TextView mf_tvName, mf_tvNum;
+    private Button my_icon_camera;
+    private Button my_icon_photo;
 
 
     @Override
@@ -45,6 +53,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private void initView() {
         //头像
         mf_icon = (ImageView) mineView.findViewById(R.id.mf_icon);
+
         //昵称
         mf_tvName = (TextView) mineView.findViewById(R.id.mf_tvName);
         //性别
@@ -56,6 +65,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         mineView.findViewById(R.id.mf_reMine).setOnClickListener(this);
         mineView.findViewById(R.id.mf_reFeed).setOnClickListener(this);
         mineView.findViewById(R.id.mf_reSeting).setOnClickListener(this);
+        mf_icon.setOnClickListener(this);
     }
 
     @Override
@@ -73,7 +83,71 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             //设置
             case R.id.mf_reSeting:
                 break;
+            //置头像---通过照相或者相册获取
+            case R.id.mf_icon:
+                final View popur_item=View.inflate(CommonUtils.getContext(),R.layout.my_icon_popur,null);
+                final PopupWindow popupWindow = new PopupWindow(popur_item, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT,true);
+                popupWindow.setTouchable(true);
+                popupWindow.setOutsideTouchable(true);
+                popupWindow.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                popupWindow.showAtLocation(mf_icon, Gravity.CENTER,0,0);
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 0.5f;
+                getActivity().getWindow().setAttributes(lp);
+                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss() {
+                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getActivity().getWindow().setAttributes(lp);
+                    }
+                });
+                my_icon_camera = (Button) popur_item.findViewById(R.id.my_icon_camera);
+                my_icon_photo = (Button) popur_item.findViewById(R.id.my_icon_photo);
+                my_icon_camera.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE );
+                        startActivity(intent);
+
+                    }
+                });
+                my_icon_photo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(intent,1);
+                    }
+                });
+                break;
         }
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //获取图片路径
+
+            if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+                Uri selectedImage = data.getData();
+                String[] filePathColumns = {MediaStore.Images.Media.DATA};
+                Cursor c = getActivity().getContentResolver().query(selectedImage, filePathColumns, null, null, null);
+                c.moveToFirst();
+                int columnIndex = c.getColumnIndex(filePathColumns[0]);
+                String imagePath = c.getString(columnIndex);
+                showImage(imagePath);
+                c.close();
+            }
+    }
+
+    private void showImage(String imagePath) {
+
+        Glide.with(CommonUtils.getContext()).load(imagePath).into(mf_icon);
+
+    }
+
+
+
 }

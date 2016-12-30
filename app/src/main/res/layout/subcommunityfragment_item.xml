@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="#ffffff"
@@ -25,7 +25,7 @@
         android:paddingLeft="@dimen/common_padding"
         android:paddingRight="@dimen/common_padding"/>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="70px"
         >
@@ -51,7 +51,7 @@
             android:gravity="center"
             android:text="2"/>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

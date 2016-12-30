@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home__fragemnt__note"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_fragment_period_pop_local">
 
@@ -24,12 +24,12 @@
             android:layout_centerInParent="true"
             android:text="@string/period_one_dog_pop_button_message"
             android:textSize="@dimen/home_fragment_note" />
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@color/Gray"></LinearLayout>
+        android:background="@color/Gray"></com.zhy.autolayout.AutoLinearLayout>
 
     <RadioGroup
         android:id="@+id/activity_home__fragemnt__rg"
@@ -58,7 +58,7 @@
             android:text="@string/period_one_dog_pop_button_replay" />
     </RadioGroup>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -80,11 +80,11 @@
             android:layout_weight="1"
             android:background="@drawable/home_fragment_background"
             android:button="@null" />
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/home_fragment_vp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
