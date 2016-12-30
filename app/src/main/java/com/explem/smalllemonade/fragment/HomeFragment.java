@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
-import com.explem.smalllemonade.utils.CommonUtils;
+import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.utils.BaseDate;
@@ -192,8 +192,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 }
 
                 @Override
-                public void setResultData(String data) {
+                public CommunityContent setResultData(String data) {
 
+                    return null;
                 }
             }.getDate(path, "&page=1", 1, BaseDate.NOMALTIME);
         }

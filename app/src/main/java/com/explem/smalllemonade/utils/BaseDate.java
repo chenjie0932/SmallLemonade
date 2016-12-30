@@ -8,6 +8,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.explem.smalllemonade.bean.CacheBean;
+import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.sql.Dao;
 import com.explem.smalllemonade.view.ShowingPage;
 
@@ -122,5 +123,5 @@ public abstract class BaseDate {
     //请求错误时返回的方法
     protected abstract void setResultError(ShowingPage.StateType stateLoadError);
     //请求成功时返回的方法
-    public abstract void setResultData(String data);
+    public abstract CommunityContent setResultData(String data);
 }
