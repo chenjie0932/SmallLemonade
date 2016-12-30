@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.view.Gravity;
+import android.content.Intent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.explem.smalllemonade.MineJumpActivity;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.utils.CommonUtils;
@@ -73,15 +75,19 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         switch (view.getId()) {
             //基本资料
             case R.id.mf_reBaseInfo:
+                jump(0);
                 break;
             //我的帖子
             case R.id.mf_reMine:
+                jump(1);
                 break;
             //意见反馈
             case R.id.mf_reFeed:
+                jump(2);
                 break;
             //设置
             case R.id.mf_reSeting:
+                jump(3);
                 break;
             //置头像---通过照相或者相册获取
             case R.id.mf_icon:
@@ -122,6 +128,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 });
                 break;
         }
+
+    }
+
+    public void jump(int id) {
+        Intent intent = new Intent(getActivity(), MineJumpActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
 
     }
 
