@@ -32,7 +32,8 @@
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
-        <activity android:name=".base.BaseActivity"></activity>
+
+        <activity android:name=".MineJumpActivity"/>
     </application>
 
 </manifest>
