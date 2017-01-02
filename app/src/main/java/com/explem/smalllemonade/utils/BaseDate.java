@@ -121,7 +121,7 @@ public abstract class BaseDate {
         mQueue.add(stringRequest);
     }
     //请求错误时返回的方法
-    protected abstract void setResultError(ShowingPage.StateType stateLoadError);
+    public abstract void setResultError(ShowingPage.StateType stateLoadError);
     //请求成功时返回的方法
-    public abstract CommunityContent setResultData(String data);
+    public abstract void setResultData(String data);
 }

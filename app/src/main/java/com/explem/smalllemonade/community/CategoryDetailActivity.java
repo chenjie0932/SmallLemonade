@@ -24,8 +24,8 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_category);
 
-//        Intent intent = getIntent();
-//        flag = intent.getStringExtra("flag");
+        Intent intent = getIntent();
+        flag = intent.getStringExtra("flag");
         initView();
     }
 
@@ -34,22 +34,57 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
         findViewById(R.id.tv_back).setOnClickListener(this);
         framelayout_community_category = (FrameLayout) findViewById(R.id.framelayout_community_category);
         setTitle();
+        findViewById(R.id.tv_community_ditail_edit).setOnClickListener(this);
+        findViewById(R.id.tv_community_ditail_bar).setOnClickListener(this);
 
         CategoryFragment categoryFragment = new CategoryFragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.framelayout_community_category,categoryFragment,"first").commit();
+        transaction.add(R.id.framelayout_community_category, categoryFragment, "first").commit();
     }
 
     private void setTitle() {
         TextView tv_community_ditail_title = (TextView) findViewById(R.id.tv_community_ditail_title);
+        switch (flag) {
+            case "first":
+                tv_community_ditail_title.setText("你的月亮我的心");
+                break;
+            case "second":
+                tv_community_ditail_title.setText("恋爱羞羞事");
+                break;
+
+            case "third":
+                tv_community_ditail_title.setText("约会必杀技");
+                break;
+
+            case "fourth":
+                tv_community_ditail_title.setText("主要看颜值");
+                break;
+
+            case "five":
+                tv_community_ditail_title.setText("恋爱直播间");
+                break;
+        }
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.tv_back){
-            finish();
+        switch (v.getId()) {
+            case R.id.tv_back:
+                finish();
+
+                break;
+
+            case R.id.tv_community_ditail_edit:
+
+                break;
+
+            case R.id.tv_community_ditail_bar:
+
+                break;
         }
+
+
 
     }
 }
