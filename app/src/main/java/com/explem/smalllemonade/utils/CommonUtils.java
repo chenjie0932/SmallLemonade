@@ -1,6 +1,7 @@
 package com.explem.smalllemonade.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -100,5 +101,12 @@ public class CommonUtils {
     // 移除指定任务的操作
     public static void removeCallBack(Runnable runnable) {
         getHandler().removeCallbacks(runnable);
+    }
+
+    //跳转
+    public static void jump(Context context, Class cla, int id) {
+        Intent intent = new Intent(context, cla);
+        intent.putExtra("id", id);
+        context.startActivity(intent);
     }
 }

@@ -25,6 +25,13 @@
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:textSize="@dimen/mf_tv_hei" />
+        <ImageView
+            android:id="@+id/title_imgRight"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+           android:visibility="gone" />
 
         <TextView
             android:textColor="@color/colorBlack"

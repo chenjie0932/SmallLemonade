@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/mf_ver_margain"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_feed"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_margin="50px"
+                android:background="@color/colorWhite"
+                android:gravity="top"
+                android:hint="大家来吐槽" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mf_panding"
+                android:text="问题分类"
+                android:textColor="@color/colorgray"
+                android:textSize="@dimen/mf_tv_hei" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:focusable="false"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="@drawable/select_selector"
+                    android:padding="@dimen/mf_panding"
+                    android:text="1.程序有问题，告诉程序员哥哥"
+                    android:textSize="40px" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="@drawable/select_selector"
+                    android:padding="@dimen/mf_panding"
+                    android:text="2.产品有问题，告诉产品妹妹"
+                    android:textSize="40px" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="@drawable/select_selector"
+                    android:padding="@dimen/mf_panding"
+                    android:text="3.界面不够美，告诉设计妹妹"
+                    android:textSize="40px" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="@drawable/select_selector"
+                    android:padding="@dimen/mf_panding"
+                    android:text="4.内容吸引力不够，告诉主编姐姐"
+                    android:textSize="40px" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="@drawable/select_selector"
+                    android:padding="@dimen/mf_panding"
+                    android:text="1.点赞/吐槽/idea,告诉boss大大"
+                    android:textSize="40px" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mf_panding"
+                android:text="欢迎添加客服微信：yulin1588888 实时在线答疑"
+                android:textColor="@color/colorgray"
+                android:textSize="40px" />
+
+            <EditText
+                android:id="@+id/tv_conet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:hint="联系方式：请输入手机号/扣扣号/微信号"
+                android:padding="@dimen/mf_panding"
+                android:textColor="@color/colorBlack" />
+        </com.zhy.autolayout.AutoLinearLayout>
+   </ScrollView>
+
+</com.zhy.autolayout.AutoRelativeLayout>
