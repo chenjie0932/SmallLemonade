@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
@@ -7,7 +7,7 @@
               android:layout_height="match_parent"
     >
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height">
 
@@ -58,7 +58,7 @@
                 />
         </RadioGroup>
 
-        <LinearLayout
+        <com.zhy.autolayout.AutoLinearLayout
             android:background="#fff"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -78,9 +78,9 @@
                 android:gravity="center"
                 android:src="@mipmap/home_notice"
                 android:visibility="invisible"/>
-        </LinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
 
 
@@ -92,4 +92,4 @@
     </android.support.v4.view.ViewPager>
 
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

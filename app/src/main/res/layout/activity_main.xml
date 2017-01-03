@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#fff"
-    >
+    android:orientation="vertical">
 
     <com.explem.smalllemonade.view.NoScollViewPager
+        android:id="@+id/activity_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/activity_vp">
+        android:layout_weight="1">
 
     </com.explem.smalllemonade.view.NoScollViewPager>
 
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <CheckBox
-        android:id="@+id/home_fragment_check"
-        android:button="@null"
-        android:checked="true"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawableTop="@drawable/vp_fragmrnt"/>
+
         <CheckBox
-            android:id="@+id/community_fragment_check"
-            android:button="@null"
+            android:id="@+id/home_fragment_check"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/vp_fragmrnt_comm"/>
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/vp_fragmrnt" />
+
+        <CheckBox
+            android:id="@+id/community_fragment_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/vp_fragmrnt_comm" />
 
         <CheckBox
             android:id="@+id/mine_fragment_check"
-            android:button="@null"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/vp_fragmrnt_my"/>
-    </LinearLayout>
+            android:button="@null"
+            android:drawableTop="@drawable/vp_fragmrnt_my" />
+    </com.zhy.autolayout.AutoLinearLayout>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
