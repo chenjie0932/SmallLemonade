@@ -4,23 +4,35 @@
               android:orientation="vertical"
               android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:focusable="true"
         android:layout_height="match_parent">
 
-    <ListView
-        android:divider="@null"
-        android:id="@+id/listview_category_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_category_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            <com.explem.smalllemonade.view.MyListView
+                android:divider="@null"
+                android:id="@+id/listview_category_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+            </com.explem.smalllemonade.view.MyListView>
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/recyclerview_category_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 
 

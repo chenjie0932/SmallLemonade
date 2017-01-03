@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,6 +29,7 @@ import java.util.List;
 
 import static android.R.id.content;
 import static android.R.id.message;
+import static com.explem.smalllemonade.R.id.tv_community_ditail_title;
 
 /**
  * Created by Administrator on 2016/12/30 0030.
@@ -52,7 +54,6 @@ public class CategoryFragment extends BaseFragment {
                     break;
 
                 case CONTENT:
-                    Log.i("123321", "content");
                     recyclerview_category_fragment.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerview_category_fragment.setAdapter(new MyRecyclerView(getActivity(),communityContent.getData()));
                     break;
@@ -61,10 +62,14 @@ public class CategoryFragment extends BaseFragment {
     };
     public ListView listview_category_fragment;
     public RecyclerView recyclerview_category_fragment;
+    public String flag;
 
     @Override
     protected void onload() {
 
+        Bundle bundle = getArguments();
+        flag = bundle.getString("flag");
+        Log.i("hahaha","argument收到的"+flag);
         CategoryFragment.this.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
 
     }
@@ -77,10 +82,49 @@ public class CategoryFragment extends BaseFragment {
         listview_category_fragment = (ListView) view.findViewById(R.id.listview_category_fragment);
         recyclerview_category_fragment = (RecyclerView) view.findViewById(R.id.recyclerview_category_fragment);
 
-        getWebData(Pathes.CommonTopPath, Pathes.FirstTopArgs, TOP);
-        getWebData(Pathes.CommonContentPath, Pathes.FirstContentArgs, CONTENT);
+//        getWebData(Pathes.CommonTopPath, Pathes.FirstTopArgs, TOP);
+//        getWebData(Pathes.CommonContentPath, Pathes.FirstContentArgs, CONTENT);
+
+        getDataByFlag();
 
         return view;
+    }
+
+    public void getDataByFlag(){
+        switch (flag){
+            case "first":
+                getWebData(Pathes.CommonTopPath, Pathes.FirstTopArgs, TOP);
+                getWebData(Pathes.CommonContentPath, Pathes.FirstContentArgs, CONTENT);
+                break;
+            case "second":
+                getWebData(Pathes.CommonTopPath, Pathes.SecondTopArgs, TOP);
+                getWebData(Pathes.CommonContentPath, Pathes.SecondContentArgs, CONTENT);
+                break;
+
+            case "third":
+                getWebData(Pathes.CommonTopPath, Pathes.ThirdTopArgs, TOP);
+                getWebData(Pathes.CommonContentPath, Pathes.ThirdContentArgs, CONTENT);
+                break;
+
+            case "fourth":
+                getWebData(Pathes.CommonTopPath, Pathes.FourthTopArgs, TOP);
+                getWebData(Pathes.CommonContentPath, Pathes.FourthContentArgs, CONTENT);
+                break;
+
+            case "five":
+                getWebData(Pathes.CommonTopPath, Pathes.FiveTopArgs, TOP);
+                getWebData(Pathes.CommonContentPath, Pathes.FiveContentArgs, CONTENT);
+                break;
+        }
+    }
+
+    public static CategoryFragment getFragment(String flag){
+        CategoryFragment categoryFragment = new CategoryFragment() ;
+        Bundle bundle = new Bundle();
+        bundle.putString("flag",flag);
+        Log.i("hahaha","argument要传递的"+flag);
+        categoryFragment.setArguments(bundle);
+        return categoryFragment;
     }
 
     @Override
@@ -108,7 +152,6 @@ public class CategoryFragment extends BaseFragment {
                     msgTop.what = TOP;
                     handler.sendMessage(msgTop);
                 } else if (flag == CONTENT) {
-
                     Message msgContent = Message.obtain();
                     msgContent.obj = communityContent;
                     msgContent.what = CONTENT;
@@ -117,6 +160,4 @@ public class CategoryFragment extends BaseFragment {
             }
         }.getDate(path, args, flag, 0);
     }
-
-
 }

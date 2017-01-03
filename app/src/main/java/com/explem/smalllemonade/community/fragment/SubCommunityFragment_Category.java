@@ -3,6 +3,7 @@ package com.explem.smalllemonade.community.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class SubCommunityFragment_Category extends BaseFragment implements View.
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.i("123456","能不能打个log?");
         getActivity().findViewById(R.id.subcommunityfragment_first).setOnClickListener(this);
         getActivity().findViewById(R.id.subcommunityfragment_second).setOnClickListener(this);
         getActivity().findViewById(R.id.subcommunityfragment_third).setOnClickListener(this);

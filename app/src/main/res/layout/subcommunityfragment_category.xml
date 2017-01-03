@@ -1,72 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:paddingLeft="@dimen/common_padding"
-              android:paddingRight="@dimen/common_padding">
+              android:paddingLeft="30px"
+              android:paddingRight="30px">
 
-    <TextView
-        android:id="@+id/subcommunityfragment_first"
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/common_padding"
         android:layout_width="match_parent"
         android:layout_height="130px"
-        android:layout_marginTop="@dimen/common_padding"
-        android:background="#fff"
-        android:drawableLeft="@mipmap/forum_section_first_logo"
-        android:drawableRight="@mipmap/more"
-        android:gravity="center_vertical"
-        android:padding="@dimen/common_padding"
-        android:text="   你的月亮我的心"/>
+        app:cardCornerRadius="30px">
+        <TextView
+            android:id="@+id/subcommunityfragment_first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/forum_section_first_logo"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding"
+            android:text="   你的月亮我的心"/>
+    </android.support.v7.widget.CardView>
 
-    <TextView
-        android:id="@+id/subcommunityfragment_second"
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/common_padding"
         android:layout_width="match_parent"
         android:layout_height="130px"
-        android:layout_marginTop="@dimen/common_padding"
-        android:background="#fff"
-        android:drawableLeft="@mipmap/forum_section_second_logo"
-        android:drawableRight="@mipmap/more"
-        android:gravity="center_vertical"
-        android:padding="@dimen/common_padding"
-        android:text="   恋爱羞羞事"/>
+        app:cardCornerRadius="20px">
 
-    <TextView
-        android:id="@+id/subcommunityfragment_third"
+        <TextView
+            android:id="@+id/subcommunityfragment_second"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/common_padding"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/forum_section_second_logo"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding"
+            android:text="   恋爱羞羞事"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/common_padding"
         android:layout_width="match_parent"
         android:layout_height="130px"
-        android:layout_marginTop="@dimen/common_padding"
-        android:background="#fff"
-        android:drawableLeft="@mipmap/forum_section_third_logo"
-        android:drawableRight="@mipmap/more"
-        android:gravity="center_vertical"
-        android:padding="@dimen/common_padding"
-        android:text="   约会必杀技"/>
+        app:cardCornerRadius="20px">
+        <TextView
+            android:id="@+id/subcommunityfragment_third"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/common_padding"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/forum_section_third_logo"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding"
+            android:text="   约会必杀技"/>
+    </android.support.v7.widget.CardView>
 
-    <TextView
-        android:id="@+id/subcommunityfragment_fourth"
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/common_padding"
         android:layout_width="match_parent"
         android:layout_height="130px"
-        android:layout_marginTop="@dimen/common_padding"
-        android:background="#fff"
-        android:drawableLeft="@mipmap/forum_section_four_logo"
-        android:drawableRight="@mipmap/more"
-        android:gravity="center_vertical"
-        android:padding="@dimen/common_padding"
-        android:text="   主要看颜值"/>
+        app:cardCornerRadius="20px">
+        <TextView
+            android:id="@+id/subcommunityfragment_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/forum_section_four_logo"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding"
+            android:text="   主要看颜值"/>
+    </android.support.v7.widget.CardView>
 
-    <TextView
-        android:id="@+id/subcommunityfragment_five"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="130px"
         android:layout_marginTop="@dimen/common_padding"
-        android:background="#fff"
-        android:drawableLeft="@mipmap/forum_section_five_logo"
-        android:drawableRight="@mipmap/more"
-        android:gravity="center_vertical"
-        android:padding="@dimen/common_padding"
-        android:text="   恋爱直播间"/>
+        android:layout_height="130px"
+        app:cardCornerRadius="20px">
+        <TextView
+            android:id="@+id/subcommunityfragment_five"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-
-
+            android:background="#fff"
+            android:drawableLeft="@mipmap/forum_section_five_logo"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding"
+            android:text="   恋爱直播间"/>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

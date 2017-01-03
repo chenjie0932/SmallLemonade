@@ -1,6 +1,7 @@
 package com.explem.smalllemonade.community;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
 
         Intent intent = getIntent();
         flag = intent.getStringExtra("flag");
+        Log.i("hahaha","oncreate里的"+flag);
         initView();
     }
 
@@ -37,9 +39,11 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
         findViewById(R.id.tv_community_ditail_edit).setOnClickListener(this);
         findViewById(R.id.tv_community_ditail_bar).setOnClickListener(this);
 
-        CategoryFragment categoryFragment = new CategoryFragment();
+
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        CategoryFragment categoryFragment = CategoryFragment.getFragment(flag);
+        Log.i("hahaha","要传过去的"+flag);
         transaction.add(R.id.framelayout_community_category, categoryFragment, "first").commit();
     }
 
@@ -83,8 +87,5 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
 
                 break;
         }
-
-
-
     }
 }

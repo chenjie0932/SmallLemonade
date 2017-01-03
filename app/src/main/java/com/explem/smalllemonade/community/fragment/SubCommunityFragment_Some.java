@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -33,7 +35,7 @@ import java.util.List;
  * Created by Administrator on 2016/12/28 0028.
  */
 
-public class SubCommunityFragment_Some extends BaseFragment implements SpringView.OnFreshListener, AdapterView.OnItemClickListener {
+public class SubCommunityFragment_Some extends BaseFragment implements SpringView.OnFreshListener, AdapterView.OnItemClickListener{
 
     public int page = 1;
     public String pathSelected = "http://www.yulin520.com/a2a/forum/allTypeList";
@@ -50,6 +52,9 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     List<CommunityContent.Data> finalList = new ArrayList<CommunityContent.Data>();
     public ListView listview_subcommunityfragment;
     public ImageView iv_floating_post;
+
+    public boolean isGoneAnimation = false;
+    public boolean isVisbleAnimation = false;
 
     @Override
     protected void onload() {
@@ -90,29 +95,64 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
         springview_subcommunityfragment.setType(SpringView.Type.FOLLOW);
 
         listview_subcommunityfragment.setOnItemClickListener(this);
+        listview_subcommunityfragment.setOnTouchListener(new View.OnTouchListener() {
 
-        initAdapter();
-
-        listview_subcommunityfragment.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
+            private float downY;
 
             @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        downY = motionEvent.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        float moveY = motionEvent.getY();
+                        //手指向下滑动，让Button显示（执行显示的动画）
+                        Log.i("AAAA----", downY + "------" + moveY);
+                        if (moveY - downY > 70 &&!isVisbleAnimation&&iv_floating_post.getVisibility()!=View.VISIBLE) {
+                            Toast.makeText(getActivity(),"显示控件",Toast.LENGTH_SHORT).show();
+                            visibleAnimation();
+                            isVisbleAnimation=true;
+                            moveY = downY;
+                            //手指向上滑动，让Button隐藏(执行隐藏的动画)
+                        } else if (downY - moveY > 70 && !isGoneAnimation) {
+                            Toast.makeText(getActivity(),"隐藏控件",Toast.LENGTH_SHORT).show();
+                            moveY = downY;
+                            isGoneAnimation = true;
+                            goneAnimation();
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        isGoneAnimation = false;
+                        isVisbleAnimation=false;
+                        break;
+                }
+                return false;
             }
         });
 
-
+        initAdapter();
 
         return view;
     }
 
-//    public void initRefrush(){
-//
-//    }
+    public void visibleAnimation() {
+        iv_floating_post.setVisibility(View.VISIBLE);
+        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 2, Animation.RELATIVE_TO_SELF, 0);
+        translateAnimation.setDuration(600);
+        translateAnimation.setFillBefore(true);
+        translateAnimation.setFillAfter(true);
+        iv_floating_post.startAnimation(translateAnimation);
+    }
+
+    public void goneAnimation() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 2);
+        translateAnimation.setDuration(800);
+        translateAnimation.setFillBefore(true);
+        translateAnimation.setFillAfter(true);
+        iv_floating_post.startAnimation(translateAnimation);
+        iv_floating_post.setVisibility(View.GONE);
+    }
 
     private void initAdapter() {
 
@@ -158,6 +198,7 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), "this is item NO." + position, Toast.LENGTH_SHORT).show();
     }
+
     //请求数据
     public class MyBaseData extends BaseDate {
 
