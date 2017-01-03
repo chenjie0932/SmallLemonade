@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,16 +24,12 @@ import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.bean.Home_Fragment_LunBo_Bean;
 import com.explem.smalllemonade.sql.Dao;
-import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.view.ShowingPage;
-import com.google.gson.Gson;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.ArrayList;
-
-import static com.android.volley.VolleyLog.TAG;
 
 /**
  * 主页Fragment
@@ -45,7 +40,7 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
     //请求网络----轮播图
-    int tag_lunbo=0;
+    int tag_lunbo = 0;
     private View v;
     private TextView home_fragment_period;
     private ImageView home_fragment_note;
@@ -65,12 +60,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private ViewPager home_fragment_viewPager;
     private LinearLayout home_fragment_lin;
 
-    Handler handler=new Handler(){
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg.arg1==tag_lunbo){
-                Home_Fragment_LunBo_Bean home_fragment_lunBo_bean= (Home_Fragment_LunBo_Bean) msg.obj;
+            if (msg.arg1 == tag_lunbo) {
+                Home_Fragment_LunBo_Bean home_fragment_lunBo_bean = (Home_Fragment_LunBo_Bean) msg.obj;
                 //拿圆点
                 getDoc(home_fragment_lunBo_bean);
                 //轮播图的数据适配器
@@ -180,18 +175,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
 
-                case R.id.home_fragment_period:
-                    //选择时期
-                    Peroid();
-                    break;
-                case R.id.home_fragment_note:
-                    enterIntent(Home_Fragemnt_Note.class);
-                    break;
-                default:
-                    break;
-            }
-
+            case R.id.home_fragment_period:
+                //选择时期
+                Peroid();
+                break;
+            case R.id.home_fragment_note:
+                enterIntent(Home_Fragemnt_Note.class);
+                break;
+            default:
+                break;
         }
+
+    }
 
     //选择时期
     void Peroid() {
@@ -294,45 +289,38 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         getActivity().getWindow().setAttributes(lp);
     }
 
-    //请求数据的方法
-    public void getData(String path, String args, final int tag) {
-        new BaseDate(getActivity()) {
-            @Override
-            protected void setResultError(ShowingPage.StateType stateLoadError) {
-            }
 
-            @Override
-            public void setResultData(String data) {
-                HomeFragment.this.data = data;
-                Gson gson = new Gson();
+    //    请求数据的方法
+//    public void getData(String path, String args, final int tag) {
+//        new BaseDate(getActivity()) {
+//            @Override
+//            protected void setResultError(ShowingPage.StateType stateLoadError) {
+//            }
+//
+//            @Override
+//            public CommunityContent setResultData(String data) {
+//                @Override
+//                public void setResultData (String data){
+//                    HomeFragment.this.data = data;
+//                    Gson gson = new Gson();
+//
+//                    return null;
+//                    if (tag_lunbo == tag) {
+//                        home_fragment_lunBo_bean = gson.fromJson(data, Home_Fragment_LunBo_Bean.class);
+//                        //发送到Handler中
+//                        Message msg = new Message();
+//                        msg.obj = home_fragment_lunBo_bean;
+//                        msg.arg1 = tag;
+//                        handler.sendMessage(msg);
+//                    }
+//                }
+//            }
+//        }.getDate(path, args, 1,BaseDate.NOMALTIME);
 
-                if(tag_lunbo==tag){
-                    home_fragment_lunBo_bean = gson.fromJson(data, Home_Fragment_LunBo_Bean.class);
-                    //发送到Handler中
-                    Message msg=new Message();
-                    msg.obj=home_fragment_lunBo_bean;
-                    msg.arg1=tag;
-                    handler.sendMessage(msg);
-                }
-            }
-        }.getDate(path, args, 1, BaseDate.NOMALTIME);
-    }
 
+        //轮播图的适配器
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause: ******");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume: ***");
-    }
-
-    //轮播图的适配器
-    public void setMyAdapter(final Home_Fragment_LunBo_Bean home_fragment_lunBo_bean){
+    public void setMyAdapter(final Home_Fragment_LunBo_Bean home_fragment_lunBo_bean) {
         home_fragment_viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
