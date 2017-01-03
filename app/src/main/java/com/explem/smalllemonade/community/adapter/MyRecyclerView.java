@@ -30,6 +30,7 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View view = CommonUtils.inflate(R.layout.subcommunityfragment_item);
         View view = LayoutInflater.from(context).inflate(R.layout.subcommunityfragment_item,parent,false);
+        //View view = CommonUtils.inflate(R.layout.subcommunityfragment_item);
         MyHolder myHolder = new MyHolder(view);
         return myHolder;
     }
@@ -39,6 +40,7 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
 
         holder.tv_subcommunity_title.setText(list.get(position).getTitle());
         holder.tv_subcommunity_content.setText(list.get(position).getContent());
+      //  holder.tv_subcommunity_name.setText(list.get(position).getUserName());
         holder.tv_subcommunity_name.setText(list.get(position).getId()+"");
         holder.tv_subcommunity_replyTimes.setText(list.get(position).getReplyTimes()+"");
     }

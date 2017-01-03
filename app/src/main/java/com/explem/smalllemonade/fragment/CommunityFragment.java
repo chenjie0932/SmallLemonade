@@ -2,17 +2,13 @@ package com.explem.smalllemonade.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
@@ -25,7 +21,7 @@ import com.explem.smalllemonade.view.ShowingPage;
  * Created by Pooh on 2016/12/27.
  */
 
-public class CommunityFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener, SpringView.OnFreshListener, ViewPager.OnPageChangeListener {
+public class CommunityFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     public RadioGroup rg_community_header;
     public CommunityPagerAdapter communityPagerAdapter;
@@ -84,15 +80,8 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
 
     }
 
-    @Override
-    public void onRefresh() {
 
-    }
 
-    @Override
-    public void onLoadmore() {
-
-    }
 //viewpager滑动监听
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

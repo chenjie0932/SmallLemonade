@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_community_category"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:background="#fff"
+        android:id="@+id/tv_back"
+        android:padding="@dimen/common_padding"
+        android:text="返回"
+        android:drawableLeft="@mipmap/return_back"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"/>
+
+    <LinearLayout
+        android:layout_marginTop="3px"
+        android:padding="@dimen/common_padding"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+
+        <ImageView
+            android:src="@mipmap/forum_section_first_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_community_ditail_title"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        
+        <ImageView
+            android:id="@+id/tv_community_ditail_edit"
+            android:src="@mipmap/community_navbar_edit_pressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/tv_community_ditail_bar"
+            android:layout_marginLeft="@dimen/common_padding"
+            android:src="@mipmap/community_detail_navbar_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <FrameLayout
+
+        android:id="@+id/framelayout_community_category"
+        android:padding="@dimen/common_padding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</LinearLayout>

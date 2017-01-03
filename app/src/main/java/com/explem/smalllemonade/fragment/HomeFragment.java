@@ -11,11 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -28,6 +28,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.explem.smalllemonade.Home_Fragment_Code_I_Know;
+import com.explem.smalllemonade.Home_Fragment_Love_Shequ;
+import com.explem.smalllemonade.Home_Fragment_Love_oxygen_nine;
+import com.explem.smalllemonade.Lenmmon_Girl_Gift;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.adapter.LoveRecycleAdapter;
 import com.explem.smalllemonade.adapter.Love_oxyGenAdapter;
@@ -75,8 +78,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     int a = 0;
     private SharedPreferences.Editor edit;
     private ArrayList<String> pathList = new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist=new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist2=new ArrayList<>();
+    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist=new ArrayList<>();
+    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist2=new ArrayList<>();
 
     //  轮播图接口
     public static String path_lunbo = "http://www.yulin520.com/a2a/broadcast/files";
@@ -112,10 +115,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
             if (msg.arg1 == tag_gift) {
                 home_fragment_giftBean = (Home_Fragment_GiftBean) msg.obj;
-                if (home_fragment_giftBean.getData() != null) {
-                    Glide.with(getActivity()).load(home_fragment_giftBean.getData().getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_snow_people);
-                }
-
+                //   if (home_fragment_giftBean.getData() != null) {
+                //     Glide.with(getActivity()).load(R.mipmap.wansheng).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_snow_people);
+                home_fragment_snow_people.setImageResource(R.mipmap.wansheng);
+                home_fragment_yuandan.setImageResource(R.mipmap.qixi);
             }
             //恋乎社区
             if (msg.arg1 == tag_love) {
@@ -138,7 +141,31 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                         RecyclerView home_fragment__love_recycle = (RecyclerView) view.findViewById(R.id.home_fragment__love_recycle);
                         //设置Recycle布局管理器
                         home_fragment__love_recycle.setLayoutManager(new LinearLayoutManager(getActivity()));
-                        home_fragment__love_recycle.setAdapter(new LoveRecycleAdapter(getActivity(), list_item));
+                        LoveRecycleAdapter loveRecycleAdapter = new LoveRecycleAdapter(getActivity(), list_item);
+                        home_fragment__love_recycle.setAdapter(loveRecycleAdapter);
+                        loveRecycleAdapter.setOnItemClickLitener(new LoveRecycleAdapter.OnItemClickLitener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Intent in = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+                                //内容
+                                in.putExtra("content", loveCommunityBean.getData().get(position).getContent());
+                                //标题
+                                in.putExtra("title", loveCommunityBean.getData().get(position).getTitle());
+                                //楼主头像
+                                in.putExtra("headImage", loveCommunityBean.getData().get(position).getHeadImg());
+                                //楼主网名
+                                in.putExtra("userName", loveCommunityBean.getData().get(position).getUserName());
+                                //发送的时间
+                                in.putExtra("createTime", loveCommunityBean.getData().get(position).getCreateTime());
+
+                                startActivity(in);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
                         container.addView(view);
                         return view;
                     }
@@ -155,24 +182,50 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 Glide.with(getActivity()).load(home_fragment_airBean.getData().get(0).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_love_oxygen_img2);
             }
             //恋爱氧气
-            if(msg.arg1==tag_oxygen){
-                home_fragment_love_oxygen= (Home_Fragment_Love_oxygen) msg.obj;
+            if (msg.arg1 == tag_oxygen) {
+                home_fragment_love_oxygen = (Home_Fragment_Love_oxygen) msg.obj;
 
-                for (int i = 0; i <3 ; i++) {
+                for (int i = 0; i < 3; i++) {
                     oxygnlist.add(home_fragment_love_oxygen.getData().get(i));
                     String substring = oxygnlist.get(0).getStartTime().substring(5, 10);
                     love_air_tv.setText(substring);
-                    home_fragment_love_oxygen_recyle.setAdapter(new Love_oxyGenAdapter(getActivity(),oxygnlist));
+                    Love_oxyGenAdapter love_oxyGenAdapter = new Love_oxyGenAdapter(getActivity(), oxygnlist);
+                    home_fragment_love_oxygen_recyle.setAdapter(love_oxyGenAdapter);
+                    love_oxyGenAdapter.setOnItemClickLitener(new Love_oxyGenAdapter.OnItemClickLitener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            Intent in = new Intent(getActivity(), Home_Fragment_Love_oxygen_nine.class);
+                            in.putExtra("url", oxygnlist.get(position).getUrl());
+                            startActivity(in);
+                        }
+
+                        @Override
+                        public void onItemLongClick(View view, int position) {
+
+                        }
+                    });
                 }
-                for (int i = 4; i <6; i++) {
+                oxygnlist2.clear();
+                for (int i = 4; i < 6; i++) {
                     oxygnlist2.add(home_fragment_love_oxygen.getData().get(i));
                     String substring = oxygnlist2.get(0).getStartTime().substring(5, 10);
                     love_air_tv2.setText(substring);
-                   home_fragment_love_oxygen_recyle2.setAdapter(new Love_oxyGenAdapter2(getActivity(),oxygnlist2));
+                    Love_oxyGenAdapter2 love_oxyGenAdapter2 = new Love_oxyGenAdapter2(getActivity(), oxygnlist2);
+                    home_fragment_love_oxygen_recyle2.setAdapter(love_oxyGenAdapter2);
+                    love_oxyGenAdapter2.setOnItemClickLitener(new Love_oxyGenAdapter2.OnItemClickLitener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            Intent in = new Intent(getActivity(), Home_Fragment_Love_oxygen_nine.class);
+                            in.putExtra("url2", oxygnlist2.get(position).getUrl());
+                            startActivity(in);
+                        }
 
+                        @Override
+                        public void onItemLongClick(View view, int position) {
 
+                        }
+                    });
                 }
-
 
 
             }
@@ -182,10 +235,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private ArrayList<LoveCommunityBean.DataBean> list_item;
     private ImageView home_fragment_love_oxygen_img2;
     private Home_Fragment_AirBean home_fragment_airBean;
-    private TextView love_air_tv,love_air_tv2;
+    private TextView love_air_tv, love_air_tv2;
     private Home_Fragment_Love_oxygen home_fragment_love_oxygen;
     private RelativeLayout home_fragment_rel;
-    private RecyclerView home_fragment_love_oxygen_recyle,home_fragment_love_oxygen_recyle2;
+    private RecyclerView home_fragment_love_oxygen_recyle, home_fragment_love_oxygen_recyle2;
 
     @NonNull
     private ArrayList<LoveCommunityBean.DataBean> CuChun(int position) {
@@ -217,7 +270,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private ImageView home_fragment_snow_people;
-    private TextView home_fragment_yuandan;
+    private ImageView home_fragment_yuandan;
     private Button home_fragment__gift;
     private String data2;
     private ViewPager love_viewPager;
@@ -247,10 +300,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         home_fragment_viewPager = (ViewPager) v.findViewById(R.id.home_fragment_viewPager);
         //轮播图圆点
         home_fragment_lin = (LinearLayout) v.findViewById(R.id.home_fragment_lin);
-          //雪人图片
+        //雪人图片
         home_fragment_snow_people = (ImageView) v.findViewById(R.id.home_fragment_snow_people);
         //元旦
-        home_fragment_yuandan = (TextView) v.findViewById(R.id.home_fragment_yuandan);
+        home_fragment_yuandan = (ImageView) v.findViewById(R.id.home_fragment_yuandan);
         //礼物推荐
         home_fragment__gift = (Button) v.findViewById(R.id.home_fragment__gift);
         //恋乎社区的轮播图
@@ -264,7 +317,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         love_air_tv2 = (TextView) v.findViewById(R.id.love_air_tv2);
         //恋爱氧气12-19
         home_fragment_love_oxygen_recyle = (RecyclerView) v.findViewById(R.id.home_fragment_love_oxygen_recyle);
-       home_fragment_love_oxygen_recyle2= (RecyclerView)v.findViewById(R.id.home_fragment_love_oxygen_recyle3);
+        home_fragment_love_oxygen_recyle2 = (RecyclerView) v.findViewById(R.id.home_fragment_love_oxygen_recyle3);
 
         getLoveDoc();
         //请求网络
@@ -276,9 +329,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         // 请求恋乎社区
         getData(path_love, args_lovw, tag_love);
         //冷暖共知
-        getData(path_air,args_air,tag_air);
+        getData(path_air, args_air, tag_air);
         //恋爱氧气
-        getData(path_oxygen,args_oxygen,tag_oxygen);
+        getData(path_oxygen, args_oxygen, tag_oxygen);
         //平铺
         home_fragment_love_oxygen_img2.setScaleType(ImageView.ScaleType.FIT_XY);
         home_fragment_love_oxygen_img2.setOnClickListener(this);
@@ -339,24 +392,28 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     ArrayList<ImageView> docList = new ArrayList<>();
 
     private void getDoc(Home_Fragment_LunBo_Bean home_fragment_lunBo_bean) {
-//        Log.i(TAG, "getDoc: ***"+home_fragment_lunBo_bean.getData().size());
-        for (int i = 0; i < home_fragment_lunBo_bean.getData().size(); i++) {
-            ImageView imageView = new ImageView(getActivity());
-            if (i == 0) {
-                // 如果是第一张，默认给一个亮的小点
-                imageView.setImageResource(R.drawable.dot_focuse);
-            } else {
-                // 如果不是滴一个，默认给一个暗的小点
-                imageView.setImageResource(R.drawable.dot_normal);
+        docList.clear();
+        Log.i(TAG, "getDoc: ***" + home_fragment_lunBo_bean.getData().size());
+        if (home_fragment_lin.getChildCount() <= 0) {
+            for (int i = 0; i < home_fragment_lunBo_bean.getData().size(); i++) {
+                ImageView imageView = new ImageView(getActivity());
+                if (i == 0) {
+                    // 如果是第一张，默认给一个亮的小点
+                    imageView.setImageResource(R.drawable.dot_focuse);
+                } else {
+                    // 如果不是滴一个，默认给一个暗的小点
+                    imageView.setImageResource(R.drawable.dot_normal);
+                }
+                // 设置小点的默认宽高为20dp
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
+                // 设置小点的间距
+                params.setMargins(5, 0, 5, 0);
+                home_fragment_lin.addView(imageView, params);
+                // 往小点集合中添加view
+                docList.add(imageView);
             }
-            // 设置小点的默认宽高为20dp
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
-            // 设置小点的间距
-            params.setMargins(5, 0, 5, 0);
-            home_fragment_lin.addView(imageView, params);
-            // 往小点集合中添加view
-            docList.add(imageView);
         }
+
     }
 
     //设置轮播图动画
@@ -420,11 +477,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             //推荐礼物
             case R.id.home_fragment__gift:
                 Toast.makeText(getActivity(), "礼物推荐", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Lenmmon_Girl_Gift.class);
+
+                startActivity(intent);
+
                 break;
             case R.id.home_fragment_love_oxygen_img2:
-            Intent  in=new Intent(getActivity(), Home_Fragment_Code_I_Know.class);
-                in.putExtra("url",home_fragment_airBean.getData().get(0).getUrl());
-                startActivity(in);
+                Intent in2 = new Intent(getActivity(), Home_Fragment_Code_I_Know.class);
+                //   if(home_fragment_airBean.getData()!=null){
+                in2.putExtra("url4", home_fragment_airBean.getData().get(0).getUrl());
+
+                //  }
+                startActivity(in2);
                 break;
 
             default:
@@ -435,15 +499,29 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     //助攻节目PopWindow
     private void PopUp() {
         View vv = View.inflate(getActivity(), R.layout.home_fragment_zhugongjiemu, null);
-        WebView home_fragment_web_zhugong = (WebView) vv.findViewById(R.id.home_fragment_web_zhugong);
-       home_fragment_web_zhugong.loadUrl(home_fragment_giftBean.getData().getHolidayDetails());
-        PopupWindow pop =new PopupWindow(vv, ViewGroup.LayoutParams.MATCH_PARENT,1100);
+//        WebView home_fragment_web_zhugong = (WebView) vv.findViewById(R.id.home_fragment_web_zhugong);
+        //home_fragment_web_zhugong.loadUrl(home_fragment_giftBean.getData().getHolidayDetails());
+        PopupWindow pop = new PopupWindow(vv, ViewGroup.LayoutParams.MATCH_PARENT, 1100);
         int height = pop.getHeight();
         int width = pop.getWidth();
         //pop属性使用系统退出键 推出POP
         pop.setBackgroundDrawable(new BitmapDrawable());
         pop.setFocusable(true);
         //点击popWindow后背景变暗
+        if (pop.isShowing()) {
+            // 关闭
+            pop.dismiss();
+        } else {
+            pop.showAtLocation(v, Gravity.LEFT | Gravity.TOP, v.getWidth() / 2 - width / 2, v.getHeight() / 2 - height / 2);
+            backgroundAlpha(0.3f);
+        }
+        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                //popupwindow消失的时候恢复成原来的透明度
+                backgroundAlpha(1f);
+            }
+        });
         if (pop.isShowing()) {
             // 关闭
             pop.dismiss();
@@ -580,13 +658,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     msg.obj = home_fragment_lunBo_bean;
                     msg.arg1 = tag;
                     handler.sendMessage(msg);
-                } if (tag_gift == tag) {
+                }
+                if (tag_gift == tag) {
                     home_fragment_giftBean = gson.fromJson(data, Home_Fragment_GiftBean.class);
                     Message msg2 = new Message();
                     msg2.obj = home_fragment_giftBean;
                     msg2.arg1 = tag;
                     handler.sendMessage(msg2);
-                }  if (tag_love == tag) {
+                }
+                if (tag_love == tag) {
                     loveCommunityBean = gson.fromJson(data, LoveCommunityBean.class);
                     Message msg3 = new Message();
                     msg3.obj = loveCommunityBean;
@@ -594,18 +674,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     handler.sendMessage(msg3);
                 }
                 if (tag_air == tag) {
-                //    Log.i("sss", "setResultData:**** "+data);
+                    //    Log.i("sss", "setResultData:**** "+data);
                     home_fragment_airBean = gson.fromJson(data, Home_Fragment_AirBean.class);
                     Message msg4 = new Message();
                     msg4.obj = home_fragment_airBean;
                     msg4.arg1 = tag;
                     handler.sendMessage(msg4);
                 }
-                if(tag_oxygen==tag){
+                if (tag_oxygen == tag) {
                     home_fragment_love_oxygen = gson.fromJson(data, Home_Fragment_Love_oxygen.class);
-                    Message msg5=new Message();
-                    msg5.obj=home_fragment_love_oxygen;
-                    msg5.arg1=tag;
+                    Message msg5 = new Message();
+                    msg5.obj = home_fragment_love_oxygen;
+                    msg5.arg1 = tag;
                     handler.sendMessage(msg5);
                 }
 
@@ -619,7 +699,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         home_fragment_viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return home_fragment_lunBo_bean.getData().size();
+                return Integer.MAX_VALUE;
             }
 
             @Override
@@ -650,5 +730,4 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
         });
     }
-    ///555555555555
 }

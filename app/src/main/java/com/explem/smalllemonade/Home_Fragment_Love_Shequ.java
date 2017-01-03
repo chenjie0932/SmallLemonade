@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -77,7 +78,8 @@ public class Home_Fragment_Love_Shequ extends AppCompatActivity implements View.
                     public void onClick(View view) {
                         popupWindow.dismiss();
                         View vv = View.inflate(Home_Fragment_Love_Shequ.this, R.layout.home_fragment_tishi_pop, null);
-                        PopupWindow popupWindow1 = new PopupWindow(vv, 1000, 600);
+                        PopupWindow popupWindow1 = new PopupWindow(vv, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
                         popupWindow1.setOutsideTouchable(true);
                         popupWindow1.setBackgroundDrawable(new BitmapDrawable());
                         if (popupWindow1.isShowing()) {
