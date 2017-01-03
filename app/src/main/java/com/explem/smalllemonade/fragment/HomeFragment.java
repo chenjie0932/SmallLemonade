@@ -39,8 +39,10 @@ import com.explem.smalllemonade.bean.Home_Fragment_Love_oxygen;
 import com.explem.smalllemonade.bean.Home_Fragment_LunBo_Bean;
 import com.explem.smalllemonade.bean.LoveCommunityBean;
 import com.explem.smalllemonade.sql.Dao;
+import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.view.ShowingPage;
+import com.google.gson.Gson;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
@@ -73,8 +75,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     int a = 0;
     private SharedPreferences.Editor edit;
     private ArrayList<String> pathList = new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist=new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist2=new ArrayList<>();
+    private  ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist=new ArrayList<>();
+    private  ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist2=new ArrayList<>();
 
     //  轮播图接口
     public static String path_lunbo = "http://www.yulin520.com/a2a/broadcast/files";

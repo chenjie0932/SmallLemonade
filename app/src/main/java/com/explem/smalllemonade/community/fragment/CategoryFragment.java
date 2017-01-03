@@ -1,11 +1,9 @@
 package com.explem.smalllemonade.community.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +15,6 @@ import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.community.adapter.MyAdapter;
 import com.explem.smalllemonade.community.adapter.MyRecyclerView;
 import com.explem.smalllemonade.community.bean.CommunityContent;
-import com.explem.smalllemonade.fragment.HomeFragment;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.utils.Pathes;
@@ -26,10 +23,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.id.content;
-import static android.R.id.message;
-import static com.explem.smalllemonade.R.id.tv_community_ditail_title;
 
 /**
  * Created by Administrator on 2016/12/30 0030.
