@@ -1,11 +1,15 @@
 package com.explem.smalllemonade.community.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.explem.smalllemonade.MainActivity;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.utils.CommonUtils;
@@ -24,6 +28,16 @@ public class SubCommunityFragmentAdapter extends BaseAdapter {
     public SubCommunityFragmentAdapter(Context context, List<CommunityContent.Data> list) {
         this.context = context;
         this.list = list;
+    }
+
+    int lastPosition = -1;
+
+    public void startAnimation(View view, int position) {
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.trans);
+            view.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
@@ -52,7 +66,9 @@ public class SubCommunityFragmentAdapter extends BaseAdapter {
         TextView tv_subcommunity_name = (TextView) convertView.findViewById(R.id.tv_subcommunity_name);
         TextView tv_subcommunity_createTime = (TextView) convertView.findViewById(R.id.tv_subcommunity_createTime);
         TextView tv_subcommunity_replyTimes = (TextView) convertView.findViewById(R.id.tv_subcommunity_replyTimes);
+        View view = convertView.findViewById(R.id.cardview_subcommunity);
 
+        startAnimation(view,position);
         tv_subcommunity_title.setText(list.get(position).getTitle());
         tv_subcommunity_content.setText(list.get(position).getContent());
         tv_subcommunity_name.setText("我的月亮你的心");

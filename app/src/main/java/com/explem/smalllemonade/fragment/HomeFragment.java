@@ -39,10 +39,8 @@ import com.explem.smalllemonade.bean.Home_Fragment_Love_oxygen;
 import com.explem.smalllemonade.bean.Home_Fragment_LunBo_Bean;
 import com.explem.smalllemonade.bean.LoveCommunityBean;
 import com.explem.smalllemonade.sql.Dao;
-import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.view.ShowingPage;
-import com.google.gson.Gson;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
@@ -619,7 +617,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         home_fragment_viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return Integer.MAX_VALUE;
+                return home_fragment_lunBo_bean.getData().size();
             }
 
             @Override
@@ -650,4 +648,5 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
         });
     }
+    ///555555555555
 }

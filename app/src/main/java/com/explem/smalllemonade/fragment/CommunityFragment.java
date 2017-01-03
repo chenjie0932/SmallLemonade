@@ -2,6 +2,7 @@ package com.explem.smalllemonade.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
@@ -18,11 +20,6 @@ import com.explem.smalllemonade.community.fragment.SubCommunityFragment_Category
 import com.explem.smalllemonade.community.fragment.SubCommunityFragment_Some;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.view.ShowingPage;
-import com.liaoinstan.springview.container.DefaultHeader;
-import com.liaoinstan.springview.widget.SpringView;
-
-import static com.explem.smalllemonade.R.id.rg_community_header;
-
 
 /**
  * Created by Pooh on 2016/12/27.
@@ -80,7 +77,6 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
             RadioButton childAt = (RadioButton) rg_community_header.getChildAt(i);
             if (childAt.getId() == checkedId){
                 childAt.setTextColor(getResources().getColor(R.color.colorYellow));
-                vp_community_content.setCurrentItem(i-1);
             }else{
                 childAt.setTextColor(getResources().getColor(R.color.colorgray));
             }
