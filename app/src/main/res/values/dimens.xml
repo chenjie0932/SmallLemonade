@@ -22,6 +22,8 @@
 
 
     <dimen name="mf_ver_margain">16px</dimen>
+    <dimen name="mf_log_off">1240px</dimen>
     <dimen name="mf_hor_margain">16px</dimen>
-    <dimen name="mf_tv_hei">50px</dimen>
+    <dimen name="mf_tv_hei">60px</dimen>
+    <dimen name="mf_ok">40px</dimen>
 </resources>

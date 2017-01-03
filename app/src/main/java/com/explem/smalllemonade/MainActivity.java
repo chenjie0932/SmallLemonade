@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         break;
                     case 2:
                         ff=new MineFragment();
+
                         break;
                 }
                 return ff;
