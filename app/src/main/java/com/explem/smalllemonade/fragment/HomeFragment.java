@@ -690,7 +690,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 }
 
             }
-        }.getDate(path, args, 1, BaseDate.NOTIME);
+        }.getDate(path, args, 1, BaseDate.NOMALTIME);
     }
 
 

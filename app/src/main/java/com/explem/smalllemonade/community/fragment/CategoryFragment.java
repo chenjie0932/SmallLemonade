@@ -59,7 +59,6 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     protected void onload() {
-
         Bundle bundle = getArguments();
         flag = bundle.getString("flag");
         Log.i("hahaha","argument收到的"+flag);

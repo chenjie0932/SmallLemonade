@@ -64,7 +64,6 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
             tv_subcommunity_content = (TextView) itemView.findViewById(R.id.tv_subcommunity_content);
             tv_subcommunity_name = (TextView) itemView.findViewById(R.id.tv_subcommunity_name);
             tv_subcommunity_replyTimes = (TextView) itemView.findViewById(R.id.tv_subcommunity_replyTimes);
-
         }
     }
 }
