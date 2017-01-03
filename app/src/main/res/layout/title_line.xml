@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@mipmap/return_back" />
+            android:src="@mipmap/a5" />
 
         <TextView
             android:textColor="@color/colorBlack"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:textSize="@dimen/mf_tv_hei" />
+            android:textSize="@dimen/home_fragment_note" />
 
         <TextView
             android:textColor="@color/colorBlack"
@@ -33,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:textSize="@dimen/mf_tv_hei" />
+
+            android:textSize="@dimen/home_fragment_note" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>
