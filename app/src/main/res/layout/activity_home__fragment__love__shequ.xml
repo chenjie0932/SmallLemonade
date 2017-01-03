@@ -1,13 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home__fragment__love__shequ"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.explem.smalllemonade.Home_Fragment_Love_Shequ">
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period">
+
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/return_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/fanhui"
+            android:text="帖子详情" />
+
+        <CheckBox
+            android:id="@+id/home_fragment_love_shequ_che"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/home_fragment_period_tv_size"
+            android:background="@drawable/commend"
+            android:button="@null" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mf_ver_margain"
+        android:background="@color/Gray"></com.zhy.autolayout.AutoLinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mf_ver_margain"
+        android:background="@color/Gray"></LinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_paddingss">
+
+        <ImageView
+            android:id="@+id/home_fragment_love_shequ_touxiang"
+            android:layout_width="@dimen/home_fragment_period_pop_local"
+            android:layout_height="@dimen/home_fragment_period_pop_local"
+            android:layout_marginLeft="@dimen/common_paddingss"
+            android:src="@mipmap/profile_male" />
+            <TextView
+                android:id="@+id/home_fragment_love_shequ_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="匿名"
+                android:layout_marginLeft="@dimen/home_fragment_note"
+                android:layout_toRightOf="@id/home_fragment_love_shequ_touxiang"
+                android:layout_alignTop="@id/home_fragment_love_shequ_touxiang"/>
+            <TextView
+                android:layout_width="@dimen/home_fragment_period"
+                android:layout_height="wrap_content"
+                android:background="@color/popCoffeeColor"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="@dimen/home_fragment_note"
+                android:layout_toRightOf="@id/home_fragment_love_shequ_name"
+                android:text="楼主"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

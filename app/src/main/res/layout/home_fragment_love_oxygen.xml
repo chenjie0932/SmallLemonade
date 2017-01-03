@@ -10,7 +10,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="@dimen/home_fragment_period_tv_size"
-        android:layout_marginTop="@dimen/home_fragment_period" />
+       />
 
     <TextView
         android:id="@+id/home_fragment_love_oxygen_title"
