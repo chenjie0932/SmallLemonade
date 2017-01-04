@@ -33,14 +33,13 @@
 
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
-            android:value="GlideModule"/>
-
-        <activity android:name=".community.CategoryDetailActivity">
-        </activity>
             android:value="GlideModule" />
 
+        <activity android:name=".community.CategoryDetailActivity" />
+        android:value="GlideModule" />
         <activity android:name=".MineJumpActivity" />
-        <activity android:name=".UapdateNameAcitvity"></activity>
+        <activity android:name=".UapdateNameAcitvity" />
+        <activity android:name=".MvPlayActivivty"></activity>
     </application>
 
 </manifest>

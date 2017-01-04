@@ -13,8 +13,7 @@ import android.widget.TextView;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.UapdateNameAcitvity;
 import com.explem.smalllemonade.utils.CommonUtils;
-
-import static com.explem.smalllemonade.R.id.img;
+import com.explem.smalllemonade.utils.StartUtils;
 
 /**
  * Created by ${薛亚南}
