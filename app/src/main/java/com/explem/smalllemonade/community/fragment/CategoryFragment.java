@@ -1,11 +1,9 @@
 package com.explem.smalllemonade.community.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -87,7 +85,6 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     protected void onload() {
-
         Bundle bundle = getArguments();
         flag = bundle.getString("flag");
         Log.i("hahaha","argument收到的"+flag);

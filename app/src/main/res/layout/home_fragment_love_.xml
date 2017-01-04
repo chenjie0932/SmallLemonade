@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_fragment_period_pop_hight"
+    android:orientation="vertical">
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="@dimen/mf_tv_hei"
+        android:id="@+id/home_fragment__love_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period_widthss"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

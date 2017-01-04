@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import com.explem.smalllemonade.UapdateNameAcitvity;
 import com.explem.smalllemonade.application.MyApplication;
 
 
@@ -100,5 +102,8 @@ public class CommonUtils {
     // 移除指定任务的操作
     public static void removeCallBack(Runnable runnable) {
         getHandler().removeCallbacks(runnable);
+    }
+
+    public static void jump(FragmentActivity activity, Class<UapdateNameAcitvity> uapdateNameAcitvityClass, int i) {
     }
 }
