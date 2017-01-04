@@ -5,7 +5,6 @@
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:padding="@dimen/mf_ver_margain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite">
@@ -24,14 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:textSize="@dimen/mf_tv_hei" />
-        <ImageView
-            android:id="@+id/title_imgRight"
-            android:layout_width="100px"
-            android:layout_height="100px"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-           android:visibility="gone" />
+            android:textSize="@dimen/home_fragment_note" />
 
         <TextView
             android:textColor="@color/colorBlack"
@@ -40,7 +32,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:textSize="@dimen/mf_tv_hei" />
+            android:textSize="@dimen/home_fragment_note" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/title_imgRight"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_centerVertical="true" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

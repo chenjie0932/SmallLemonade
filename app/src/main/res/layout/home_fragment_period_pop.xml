@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff">
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_fragment_period_pop_local">
 
@@ -14,12 +14,14 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/period_one_dog_pop" />
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_fragment_period_pop_local"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/home_fragment_period_pop_locals"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/home_fragment_period"
+        >
 
         <CheckBox
             android:id="@+id/home_fragment_pop_che_two"
@@ -41,12 +43,13 @@
             android:drawableTop="@drawable/home_fragment_period_one"
             android:gravity="center_horizontal"
             android:text="单身期" />
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+
             android:id="@+id/home_fragment_pop_true"
             android:layout_width="@dimen/home_fragment_period_pop_hight"
             android:layout_height="@dimen/home_fragment_period"
@@ -55,6 +58,6 @@
             android:text="@string/period_one_dog_pop_button_true"
             android:textColor="@color/WallColor"/>
 
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

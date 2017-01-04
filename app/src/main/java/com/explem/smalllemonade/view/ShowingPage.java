@@ -44,8 +44,8 @@ public abstract class ShowingPage extends FrameLayout implements View.OnClickLis
         if(showingpage_load_error==null){
             showingpage_load_error=CommonUtils.inflate(R.layout.showingpage_load_error);
             //查找重新加载的按钮
-//            bt_reload = (Button) showingpage_load_error.findViewById(R.id.bt_reload);
-//            bt_reload.setOnClickListener(this);
+            bt_reload = (Button) showingpage_load_error.findViewById(R.id.bt_reload);
+            bt_reload.setOnClickListener(this);
             //并添加到framlayout中
             this.addView(showingpage_load_error);
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.explem.smalllemonade.view.PullRecyclerView
@@ -9,4 +9,4 @@
         android:orientation="vertical"></com.explem.smalllemonade.view.PullRecyclerView>
     
     
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

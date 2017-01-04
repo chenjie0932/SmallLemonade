@@ -12,7 +12,7 @@ import com.explem.smalllemonade.fragment.FeedFragment;
 import com.explem.smalllemonade.fragment.MinePostFragment;
 import com.explem.smalllemonade.fragment.SetingFragment;
 
-import static com.explem.smalllemonade.R.id.title_imgRight;
+//import static com.explem.smalllemonade.R.id.title_imgRight;
 import static com.explem.smalllemonade.R.id.title_imgback;
 
 /**
@@ -66,7 +66,7 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
                 title_tvtitle.setText("我的帖子");
                 title_tvright.setVisibility(View.GONE);
                 title_imgRight.setVisibility(View.VISIBLE);
-                title_imgRight.setImageResource(R.mipmap.forum_post_btn);
+             title_imgRight.setImageResource(R.mipmap.forum_post_btn);
                 getSupportFragmentManager().beginTransaction().hide(baseInfoFragment).show(minePostFragmnet)
                         .hide(setingFragment).hide(feedFragment).commit();
                 break;
@@ -93,7 +93,7 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
         title_tvtitle = (TextView) findViewById(R.id.title_tvtitle);
         //右侧
         title_tvright = (TextView) findViewById(R.id.title_tvright);
-        title_imgRight = (ImageView) findViewById(R.id.title_imgRight);
+       title_imgRight = (ImageView) findViewById(R.id.title_imgRight);
 
     }
 

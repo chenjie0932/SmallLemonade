@@ -99,12 +99,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoRelativeLayout>
-      <com.zhy.autolayout.AutoLinearLayout
+      <LinearLayout
           android:layout_marginTop="@dimen/mf_ver_margain"
             android:orientation="horizontal"
           android:id="@+id/mf_ll"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"></com.zhy.autolayout.AutoLinearLayout>
+          android:layout_height="wrap_content"></LinearLayout>
     <com.zhy.autolayout.AutoRelativeLayout
         android:id="@+id/mf_reMine"
         android:background="@color/colorWhite"

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!--恋爱时期-->
@@ -31,6 +31,317 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/home_fragment_note"
             android:src="@mipmap/home_notice_pressed" />
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_centerInParent="true"
+                android:background="@color/Gray"
+                android:clipChildren="false">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/home_fragment_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:clipChildren="false"></android.support.v4.view.ViewPager>
+
+            </com.zhy.autolayout.AutoFrameLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/home_fragment_lin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period"
+                android:background="@color/Gray"
+                android:gravity="center"
+                android:orientation="horizontal"></com.zhy.autolayout.AutoLinearLayout>
+            // 助攻节目
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_note"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_height="@dimen/home_fragment_period_tv_size"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:background="@color/popCoffeeColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:text="助攻节目" />
+            </com.zhy.autolayout.AutoLinearLayout>
+            <!--宽度800   高度600-->
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/home_fragment_Rel"
+                android:layout_width="@dimen/home_fragment_period_hight"
+                android:layout_height="@dimen/home_fragment_period_pop_hight">
+
+                <ImageView
+                    android:id="@+id/home_fragment_snow_people"
+                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_height="@dimen/home_fragment_period_widths"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="@dimen/home_fragment_period_tv_size"
+                    android:background="#b9b9ff" />
+
+                <TextView
+                    android:id="@+id/home_fragment_daojishi"
+                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/home_fragment_daojishi"
+                    android:layout_marginLeft="@dimen/home_fragment_period_pop_locals"
+                    android:layout_toRightOf="@id/home_fragment_snow_people"
+                    android:text="倒计时"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/home_fragment__num"
+                    android:layout_toEndOf="@+id/home_fragment__num"
+                    android:layout_toRightOf="@+id/home_fragment__num"
+                    android:text="天"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/home_fragment__num"
+                    android:layout_width="80px"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/home_fragment_daojishi"
+                    android:layout_alignStart="@+id/home_fragment_daojishi"
+                    android:layout_below="@+id/home_fragment_daojishi"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="2"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/home_fragment__gift"
+                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/home_fragment_daojishi"
+                    android:layout_marginTop="@dimen/home_fragment_period_pop_localsss"
+                    android:background="@drawable/home_fragment_three"
+                    android:text="礼物推荐"
+                    android:textColor="@color/WallColor" />
+
+                <ImageView
+                    android:id="@+id/home_fragment_yuandan"
+                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_height="@dimen/home_fragment_period_pop__message_hights"
+                    android:layout_alignLeft="@+id/home_fragment_snow_people"
+                    android:layout_alignStart="@+id/home_fragment_snow_people"
+                    android:layout_below="@+id/home_fragment_snow_people"
+                    android:background="#b9b9ff"
+                    android:gravity="center"
+                    android:text="1111111111"
+                    android:textSize="20sp" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mf_ver_margain"
+                android:background="@color/Gray"></com.zhy.autolayout.AutoLinearLayout>
+
+            //恋乎社区
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_note"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_height="@dimen/home_fragment_period_tv_size"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:background="@color/popCoffeeColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:text="恋乎社区" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/love_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period_widthsv"
+                android:layout_marginTop="@dimen/home_fragment_note"
+                android:background="@color/Gray"></android.support.v4.view.ViewPager>
+
+            <com.zhy.autolayout.AutoLinearLayout
+
+                android:id="@+id/home_fragment__love_lin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period_pop__message_hight"
+                android:background="@color/Gray"
+                android:gravity="center"></com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_period_tv_size">
+                //恋爱氧气
+
+                <TextView
+                    android:id="@+id/home_fragment_love_oxygen"
+                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_height="@dimen/home_fragment_period_tv_size"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:background="@color/popCoffeeColor" />
+
+                <TextView
+                    android:id="@+id/home_fragment_love_oxygen_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/home_fragment_love_oxygen"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:layout_toRightOf="@id/home_fragment_love_oxygen"
+                    android:text="冷暖共知" />
+
+                <ImageView
+                    android:id="@+id/home_fragment_love_oxygen_img"
+                    android:layout_width="@dimen/home_fragment_period_pop__message_hight"
+                    android:layout_height="@dimen/common_paddingss"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/home_more_large" />
+
+                <TextView
+                    android:id="@+id/home_fragment_love_oxygen_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/home_fragment_note"
+                    android:layout_toLeftOf="@id/home_fragment_love_oxygen_img"
+                    android:text="往期" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <ImageView
+                android:id="@+id/home_fragment_love_oxygen_img2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period_pop_locals"
+                android:layout_gravity="center"
+                android:src="@mipmap/profile_male" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_note"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_height="@dimen/home_fragment_period_tv_size"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:background="@color/popCoffeeColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/home_fragment_note"
+                    android:text="恋爱氧气" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_period_pop_localss"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/love_air_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="sss" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/home_fragment_period_tv_size"
+                    android:layout_toLeftOf="@id/love_air_tv"
+                    android:text="—— " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/home_fragment_note"
+                    android:layout_marginLeft="@dimen/home_fragment_period_tv_size"
+                    android:layout_toRightOf="@id/love_air_tv"
+                    android:text="——" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_fragment_love_oxygen_recyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_fragment_period_pop_localss"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/love_air_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="sss" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/home_fragment_period_tv_size"
+                    android:layout_toLeftOf="@id/love_air_tv2"
+                    android:text="—— " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/home_fragment_note"
+                    android:layout_marginLeft="@dimen/home_fragment_period_tv_size"
+                    android:layout_toRightOf="@id/love_air_tv2"
+                    android:text="——" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_fragment_love_oxygen_recyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+
+</com.zhy.autolayout.AutoLinearLayout>
+
+

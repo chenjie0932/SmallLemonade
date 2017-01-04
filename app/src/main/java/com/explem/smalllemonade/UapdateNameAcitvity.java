@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.explem.smalllemonade.bean.WorkBean;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.ShowingPage;
 import com.google.gson.Gson;
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.List;
@@ -29,12 +31,14 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
     private Intent intent;
     private int id;
     private AutoRelativeLayout upn_re;
-    private AutoRadioGroup upn_rg;
     private RecyclerView upn_rcl;
     private Gson gson;
     private WorkBean workBean;
     private EditText upn_et_name;
     private TextView upn_tv_num;
+    private AutoLinearLayout emotio_ll;
+    private ImageView iv_double;
+    private ImageView iv_single;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +68,7 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
             case 1:
                 title_tvtitle.setText("情感状况");
                 title_tvright.setText("完成");
-                upn_rg.setVisibility(View.VISIBLE);
-
+                emotio_ll.setVisibility(View.VISIBLE);
                 break;
             //工作
             case 2:
@@ -90,7 +93,7 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
             //正在变化
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                int length =  charSequence.length();
+                int length = charSequence.length();
                 upn_tv_num.setText((10 - length) + "");
             }
 
@@ -146,9 +149,13 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
         upn_tv_num = (TextView) findViewById(R.id.upn_tv_num);
         upn_tvdesc = (TextView) findViewById(R.id.upn_tvdesc);
         upn_re = (AutoRelativeLayout) findViewById(R.id.upn_re);
-        upn_rg = (AutoRadioGroup) findViewById(R.id.upn_rg);
         upn_rcl = (RecyclerView) findViewById(R.id.upn_rcl);
+        emotio_ll = (AutoLinearLayout) findViewById(R.id.emotio_ll);
         upn_rcl.setLayoutManager(new LinearLayoutManager(UapdateNameAcitvity.this));
+        findViewById(R.id.emotio_rela_single).setOnClickListener(this);
+        findViewById(R.id.emotio_rela_double).setOnClickListener(this);
+        iv_double = (ImageView) findViewById(R.id.iv_double);
+        iv_single = (ImageView) findViewById(R.id.iv_single);
     }
 
     //点击事件
@@ -169,6 +176,16 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
                 } else if (title.equals("选择职业")) {
 
                 }
+                break;
+            //热恋
+            case R.id.emotio_rela_double:
+                iv_double.setVisibility(View.VISIBLE);
+                iv_single.setVisibility(View.GONE);
+                break;
+            //单身
+            case R.id.emotio_rela_single:
+                iv_double.setVisibility(View.GONE);
+                iv_single.setVisibility(View.VISIBLE);
                 break;
 
         }

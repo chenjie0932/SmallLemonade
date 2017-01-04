@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import com.explem.smalllemonade.UapdateNameAcitvity;
 import com.explem.smalllemonade.application.MyApplication;
+
+import static android.R.attr.id;
 
 
 public class CommonUtils {
@@ -103,10 +107,4 @@ public class CommonUtils {
         getHandler().removeCallbacks(runnable);
     }
 
-    //跳转
-    public static void jump(Context context, Class cla, int id) {
-        Intent intent = new Intent(context, cla);
-        intent.putExtra("id", id);
-        context.startActivity(intent);
-    }
 }
