@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:orientation="vertical">
+    >
 
     <TextView
         android:id="@+id/home_fragment__note_recycle_item_tv"
-        android:layout_width="@dimen/home_fragment_period_width"
+        android:layout_width="match_parent"
         android:layout_marginLeft="@dimen/home_fragment_period"
         android:layout_height="@dimen/home_fragment_period_width"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
 
         />
-</LinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

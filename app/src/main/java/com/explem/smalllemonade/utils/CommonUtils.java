@@ -1,12 +1,17 @@
 package com.explem.smalllemonade.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import com.explem.smalllemonade.UapdateNameAcitvity;
 import com.explem.smalllemonade.application.MyApplication;
+
+import static android.R.attr.id;
 
 
 public class CommonUtils {
@@ -101,4 +106,5 @@ public class CommonUtils {
     public static void removeCallBack(Runnable runnable) {
         getHandler().removeCallbacks(runnable);
     }
+
 }

@@ -3,6 +3,7 @@ package com.explem.smalllemonade;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.explem.smalllemonade.base.BaseActivity;
@@ -10,6 +11,9 @@ import com.explem.smalllemonade.fragment.BaseInfoFragment;
 import com.explem.smalllemonade.fragment.FeedFragment;
 import com.explem.smalllemonade.fragment.MinePostFragment;
 import com.explem.smalllemonade.fragment.SetingFragment;
+
+//import static com.explem.smalllemonade.R.id.title_imgRight;
+import static com.explem.smalllemonade.R.id.title_imgback;
 
 /**
  * Created by ${薛亚南}
@@ -22,6 +26,7 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
     private SetingFragment setingFragment;
     private MinePostFragment minePostFragmnet;
     private FeedFragment feedFragment;
+    private ImageView title_imgRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
             case 1:
                 title_tvtitle.setText("我的帖子");
                 title_tvright.setVisibility(View.GONE);
+                title_imgRight.setVisibility(View.VISIBLE);
+             title_imgRight.setImageResource(R.mipmap.forum_post_btn);
                 getSupportFragmentManager().beginTransaction().hide(baseInfoFragment).show(minePostFragmnet)
                         .hide(setingFragment).hide(feedFragment).commit();
                 break;
@@ -72,7 +79,7 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
                 break;
             case 3:
                 title_tvtitle.setText("设置");
-                title_tvright.setVisibility(View.GONE);
+               title_tvright.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().hide(baseInfoFragment).hide(minePostFragmnet)
                         .show(setingFragment).hide(feedFragment).commit();
                 break;
@@ -81,19 +88,19 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void initView() {
-        findViewById(R.id.title_imgback).setOnClickListener(this);
+        findViewById(title_imgback).setOnClickListener(this);
         //标题
         title_tvtitle = (TextView) findViewById(R.id.title_tvtitle);
         //右侧
         title_tvright = (TextView) findViewById(R.id.title_tvright);
-
+       title_imgRight = (ImageView) findViewById(R.id.title_imgRight);
 
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_imgback:
+            case title_imgback:
                 finish();
                 break;
         }
