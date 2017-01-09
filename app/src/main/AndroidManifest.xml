@@ -71,7 +71,6 @@
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
-
         <activity android:name=".MineJumpActivity" />
         <activity android:name=".DaoHangActivity">
             <intent-filter>
